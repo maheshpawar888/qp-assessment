@@ -1,0 +1,20 @@
+{
+    "root": [
+        "./src/types/express.d.ts",
+        "./src/db.ts",
+        "./src/index.ts",
+        "./src/controllers/admin.controller.ts",
+        "./src/controllers/auth.controller.ts",
+        "./src/controllers/user.controller.ts",
+        "./src/middlewares/auth.ts",
+        "./src/models/grocery.model.ts",
+        "./src/models/order.model.ts",
+        "./src/models/order_items.model.ts",
+        "./src/models/user.model.ts",
+        "./src/routes/admin.routes.ts",
+        "./src/routes/auth.route.ts",
+        "./src/routes/user.route.ts",
+        "./src/utils/jwtUtils.ts"
+    ],
+    "version": "5.6.3"
+}

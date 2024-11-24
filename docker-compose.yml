@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_HOST: mysqldb
+      DATABASE_USER: admin
+      DATABASE_PASSWORD: Mahesh@123
+      DATABASE_NAME: grocery_db
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    command: ["./wait-for-it.sh", "mysqldb:3306", "--", "npm", "start"]
+
+  db:
+    image: mysql:latest
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Mahesh@123
+      MYSQL_DATABASE: grocery_db
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./db_data:/var/lib/mysql
+
+volumes:
+  db_data:
